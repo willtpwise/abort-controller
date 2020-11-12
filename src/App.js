@@ -33,6 +33,8 @@ function Page() {
 
   const fakeMutation = async () => {
     if (loading) {
+      // we're currently loading some data which the below mutation could
+      // change... abort the load, mutate, then refetch
       controller.abort();
     }
 
